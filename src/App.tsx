@@ -8,17 +8,21 @@ function App() {
     }
 
     return (
-        <div className="container">
-            <h1>The Peacock Project</h1>
+        <section className="hero is-large is-info">
+            <div className="hero-head">
+                <h1 className="title">Peacock Launcher</h1>
+            </div>
 
-            <div className="row">
-                <div>
-                    <button type="button" onClick={() => getCock()}>
-                        Start Peacock
-                    </button>
+            <div className="hero-body">
+                <div className="container has-text-centered">
+                    <div>
+                        <button type="button" className="button" onClick={() => getCock()}>
+                            Start Peacock
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
