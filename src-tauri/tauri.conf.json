@@ -1,7 +1,7 @@
 {
     "build": {
         "beforeDevCommand": "yarn dev",
-        "beforeBuildCommand": "yarn build",
+        "beforeBuildCommand": "yarn build:frontend",
         "devPath": "http://localhost:1420",
         "distDir": "../dist"
     },
@@ -56,7 +56,7 @@
             {
                 "fullscreen": false,
                 "height": 600,
-                "resizable": true,
+                "resizable": false,
                 "title": "Peacock Launcher",
                 "width": 800
             }
