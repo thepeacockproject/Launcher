@@ -1,0 +1,36 @@
+name: Launcher Build
+
+env:
+  CARGO_TERM_COLOR: always
+  NODE_VERSION: 18
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${NODE_VERSION}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${NODE_VERSION}
+        cache: "yarn"
+
+    - name: Install Dependencies
+      run: yarn
+
+    - name: Build Launcher Binary
+      run: yarn build
+
+    - name: Upload Launcher Artifacts
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: Launcher
+        path: src-tauri/target
