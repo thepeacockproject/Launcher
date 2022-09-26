@@ -25,9 +25,18 @@ jobs:
 
     - name: Install Dependencies
       run: yarn
+      
+    - name: Fix Linux Build Conflict
+      run: brew uninstall pkg-config --force --ignore-dependencies
 
     - name: Build Launcher Binary
       run: yarn build
+      
+    - name: Dependency Build Cache
+      uses: actions/cache@v3.0.8
+      with:
+        path: src-tauri/target/release
+        key: target-1
 
     - name: Upload Launcher Artifacts
       uses: actions/upload-artifact@v3.1.0
