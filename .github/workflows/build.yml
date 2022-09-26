@@ -25,9 +25,9 @@ jobs:
 
     - name: Install Dependencies
       run: yarn
-      
-    - name: Fix Linux Build Conflict
-      run: brew uninstall pkg-config --force --ignore-dependencies
+
+    - name: Fix Linux Build
+      run: apt update && apt install -y libgtk-3-dev
 
     - name: Build Launcher Binary
       run: yarn build
