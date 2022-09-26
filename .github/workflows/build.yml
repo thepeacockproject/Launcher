@@ -6,7 +6,7 @@ env:
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "*" ]
   pull_request:
     branches: [ "main" ]
 
@@ -27,7 +27,7 @@ jobs:
       run: yarn
 
     - name: Fix Linux Build
-      run: sudo apt update && sudo apt install -y libgtk-3-dev libsoup2.4-dev libjavascriptcoregtk-4.0-dev
+      run: sudo apt update && sudo apt install -y libgtk-3-dev libsoup2.4-dev libjavascriptcoregtk-4.0-dev libwebkit2gtk-4.0-dev
 
     - name: Build Launcher Binary
       run: yarn build
