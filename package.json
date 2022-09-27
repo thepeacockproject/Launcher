@@ -9,7 +9,7 @@
         "build:frontend": "tsc && vite build",
         "start": "yarn run tauri dev",
         "tauri": "tauri",
-        "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css}\""
+        "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,yml}\""
     },
     "dependencies": {
         "@tauri-apps/api": "^1.1.0",

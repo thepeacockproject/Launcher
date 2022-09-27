@@ -1,45 +1,58 @@
 name: Launcher Build
 
 env:
-  CARGO_TERM_COLOR: always
-  NODE_VERSION: 18
+    CARGO_TERM_COLOR: always
+    NODE_VERSION: 18
 
 on:
-  push:
-    branches: [ "main", "*" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ["*"]
+    pull_request:
+        branches: ["*"]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        strategy:
+            fail-fast: false
+            matrix:
+                platform: [macos-latest, ubuntu-latest, windows-latest]
 
-    steps:
-    - uses: actions/checkout@v3
+        runs-on: ${{ matrix.platform }}
 
-    - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        cache: "yarn"
+        steps:
+            - uses: actions/checkout@v3
 
-    - name: Install Dependencies
-      run: yarn
+            - name: Install Node.js ${{ env.NODE_VERSION }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: "yarn"
 
-    - name: Fix Linux Build
-      run: sudo apt update && sudo apt install -y libgtk-3-dev libsoup2.4-dev libjavascriptcoregtk-4.0-dev libwebkit2gtk-4.0-dev
+            - name: Install Rust stable
+              uses: actions-rs/toolchain@v1
+              with:
+                  toolchain: stable
 
-    - name: Build Launcher Binary
-      run: yarn build
-      
-    - name: Dependency Build Cache
-      uses: actions/cache@v3.0.8
-      with:
-        path: src-tauri/target/release
-        key: target-1
+            - name: Install Dependencies
+              run: yarn
 
-    - name: Upload Launcher Artifacts
-      uses: actions/upload-artifact@v3.1.0
-      with:
-        name: Launcher
-        path: src-tauri/target
+            - name: Install Linux Dependencies
+              if: matrix.platform == 'ubuntu-latest'
+              run: |
+                  sudo apt update
+                  sudo apt install -y libgtk-3-dev libsoup2.4-dev libjavascriptcoregtk-4.0-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+
+            - name: Build Launcher Binary
+              run: yarn build
+
+            - name: Dependency Build Cache
+              uses: actions/cache@v3.0.8
+              with:
+                  path: src-tauri/target
+                  key: target-1
+
+            - name: Upload Launcher Artifacts
+              uses: actions/upload-artifact@v3.1.0
+              with:
+                  name: Launcher
+                  path: src-tauri/target/release/bundle
