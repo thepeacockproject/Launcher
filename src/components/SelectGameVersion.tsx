@@ -10,11 +10,10 @@ function LabelOption(props: {
             <input
                 type="radio"
                 name={props.group}
-                value={props.name}
                 onChange={() => props.getSet[1](props.name)}
                 checked={props.getSet[0] === props.name}
             />
-            {props.name}
+            {` ${props.name}`}
         </label>
     )
 }
@@ -25,11 +24,20 @@ export default function SelectGameVersion() {
         undefined
     )
 
+    // const invalidConditions = [
+    //     () => version === undefined,
+    //     () => platform === undefined,
+    //     () => version === "H2" && platform === "Epic",
+    // ]
+    //
+    // const valid = React.useMemo(
+    //     () => !invalidConditions.some((condition) => condition()),
+    //     [version, platform]
+    // )
+
     return (
         <form className="box">
-            <p className="title not-white">
-                Please select your preferred game version
-            </p>
+            <p className="title">Please select your preferred game version</p>
             <p>
                 <i>(You can change this later in settings)</i>
             </p>

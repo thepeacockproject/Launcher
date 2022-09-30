@@ -1,7 +1,7 @@
 import { SetupCommonProps } from "../FirstTimeSetupPage"
-import Layout from "../Layout"
+import Layout from "../../Layout"
 import * as React from "react"
-import SelectGameVersion from "../components/SelectGameVersion"
+import SelectGameVersion from "../../components/SelectGameVersion"
 
 export default function PickGameVersion(props: SetupCommonProps) {
     return (

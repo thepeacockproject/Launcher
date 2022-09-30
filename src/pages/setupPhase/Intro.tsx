@@ -1,4 +1,4 @@
-import Layout from "../Layout"
+import Layout from "../../Layout"
 import * as React from "react"
 import { Phase, SetupCommonProps } from "../FirstTimeSetupPage"
 
