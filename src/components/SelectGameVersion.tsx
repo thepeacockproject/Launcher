@@ -33,6 +33,25 @@ export default function SelectGameVersion() {
             <p>
                 <i>(You can change this later in settings)</i>
             </p>
+            <div className="control">
+                <LabelOption
+                    group="game-version"
+                    name="HITMAN&trade; 3"
+                    getSet={[version!, setVersion]}
+                />
+                <br></br>
+                <LabelOption
+                    group="game-version"
+                    name="HITMAN&trade; 2"
+                    getSet={[version!, setVersion]}
+                />
+                <br></br>
+                <LabelOption
+                    group="game-version"
+                    name="HITMAN&trade; (2016)"
+                    getSet={[version!, setVersion]}
+                />
+            </div>
 
             <div className="control">
                 <LabelOption
@@ -40,28 +59,11 @@ export default function SelectGameVersion() {
                     group="provider"
                     getSet={[platform!, setPlatform]}
                 />
+                <br></br>
                 <LabelOption
                     name="Steam"
                     group="provider"
                     getSet={[platform!, setPlatform]}
-                />
-            </div>
-
-            <div className="control">
-                <LabelOption
-                    group="game-version"
-                    name="HITMAN&trade; 3"
-                    getSet={[version!, setVersion]}
-                />
-                <LabelOption
-                    group="game-version"
-                    name="HITMAN&trade; 2"
-                    getSet={[version!, setVersion]}
-                />
-                <LabelOption
-                    group="game-version"
-                    name="HITMAN&trade; (2016)"
-                    getSet={[version!, setVersion]}
                 />
             </div>
         </form>
