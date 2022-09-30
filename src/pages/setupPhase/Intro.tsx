@@ -8,6 +8,12 @@ export default function Intro(props: SetupCommonProps) {
             <section className="hero-body">
                 <h1 className="title">Peacock Launcher</h1>
 
+                {IS_DEVELOPMENT && (
+                    <button onClick={() => props.setPhase(Phase.Testing)}>
+                        Secret testing page
+                    </button>
+                )}
+
                 <div className="container middle-child has-text-centered">
                     <div>
                         <p className="title">Welcome, let's get started!</p>

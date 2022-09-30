@@ -15,7 +15,6 @@ pub struct RemoteVersion {
     pub ident: String,
     pub is_latest: bool,
     pub url: String,
-    pub node_version: String,
 }
 
 #[derive(Serialize, Deserialize)]

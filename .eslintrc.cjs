@@ -1,6 +1,7 @@
 module.exports = {
     env: {
         node: true,
+        browser: true,
         es2021: true,
     },
     plugins: ["@typescript-eslint", "promise", "react-hooks"],
