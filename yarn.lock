@@ -490,15 +490,17 @@ __metadata:
   dependencies:
     "@tauri-apps/api": "npm:^1.1.0"
     "@tauri-apps/cli": "npm:^1.1.1"
-    "@types/eslint": "npm:^8"
+    "@types/escape-html": "npm:^1.0.2"
     "@types/node": "npm:^18.7.21"
     "@types/react": "npm:^18.0.21"
     "@types/react-dom": "npm:^18.0.6"
     "@typescript-eslint/eslint-plugin": "npm:^5.38.1"
     "@typescript-eslint/parser": "npm:^5.38.1"
     "@vitejs/plugin-react": "npm:^2.1.0"
+    ansi-html-community: "npm:0.0.8"
     bulma: "npm:^0.9.4"
     clsx: "npm:^1.2.1"
+    escape-html: "npm:^1.0.3"
     eslint: "npm:^8.24.0"
     eslint-config-prettier: "npm:^8.5.0"
     eslint-plugin-promise: "npm:^6.0.1"
@@ -627,24 +629,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:^8":
-  version: 8.4.6
-  resolution: "@types/eslint@npm:8.4.6"
-  dependencies:
-    "@types/estree": "npm:*"
-    "@types/json-schema": "npm:*"
-  checksum: ff4d7186671176c82d564ee4fa2e9b27aa2a8f558d36220c32ebcc1b965897cdf7e99a14cc59f29469406cb023d993962899d95851cf9455f8abb6af81b2fbfc
+"@types/escape-html@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@types/escape-html@npm:1.0.2"
+  checksum: 9724c3b6df12a9bd8dbef47935cca089de42c55ec33f1bbd5bf58ad2857e62b9b906fe28009c244171dd79bc1bfec74c63272eb13d2392e01f4fafa401ea8dc2
   languageName: node
   linkType: hard
 
-"@types/estree@npm:*":
-  version: 1.0.0
-  resolution: "@types/estree@npm:1.0.0"
-  checksum: 474df434e3a469cb7a68d44c8b7ac3a21bca344fa3b49651c3451d0f3662ff0c3b2ba52149cbc5b9c9a9f3f1ac37958c163ef29b65a8b36fccb5ccb2acfc9b08
-  languageName: node
-  linkType: hard
-
-"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.9":
+"@types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 8e5c6dd393411418e3d803ab0a09862b4ed47f73e7ed990f3b907dd41cc4d2f2b4f7aed9a39c7fd2acaa80314ac1397a5e2e5e6c25a338f01bbfba708cc70d8e
@@ -890,6 +882,15 @@ __metadata:
     json-schema-traverse: "npm:^0.4.1"
     uri-js: "npm:^4.2.2"
   checksum: c8b4c5eb679d58b3b145c914cb328b49622ead05aecd2c8da490809d542d0796d558602a7988745214eff2a7642dcca784f909414cb746d7235a97a3f89fecee
+  languageName: node
+  linkType: hard
+
+"ansi-html-community@npm:0.0.8":
+  version: 0.0.8
+  resolution: "ansi-html-community@npm:0.0.8"
+  bin:
+    ansi-html: bin/ansi-html
+  checksum: 56bf91b53357d6fa66973feb7294140fdc9da5a11fa63f354ef05ae3b47db4bb367ca1a6960f09c572d395b05ed16c698ce5f23d172eae9c6e4b50213aff8deb
   languageName: node
   linkType: hard
 
@@ -1514,6 +1515,13 @@ __metadata:
   version: 3.1.1
   resolution: "escalade@npm:3.1.1"
   checksum: 37f3535f99193a5ff755af30866bb55828aff044bdc14e1844d0965470ba87ef686761fbbf2cea02955f1bb8510f72c3308e7dbe2d794fa85058a33bf60ea372
+  languageName: node
+  linkType: hard
+
+"escape-html@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "escape-html@npm:1.0.3"
+  checksum: c2c0e204bdee0452b5481e18e659d8f0ef909b774cd8140724e53df3254e75c04e8ff30298f658ca0310191f46de5bbb94459fc55103eb978eb6ffaaf499bbd1
   languageName: node
   linkType: hard
 

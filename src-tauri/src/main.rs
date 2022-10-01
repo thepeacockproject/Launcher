@@ -6,10 +6,9 @@
 mod commands;
 mod file_utils;
 mod http_utils;
-mod process_utils;
 mod structs;
 
-use crate::commands::{download_version, is_first_time, unzip_test};
+use crate::commands::{download_version, is_first_time, launch_test, unzip_test};
 use crate::structs::AppState;
 use tauri::Manager;
 
@@ -33,6 +32,7 @@ async fn main() {
             is_first_time,
             download_version,
             unzip_test,
+            launch_test,
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Peacock Launcher");

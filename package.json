@@ -14,14 +14,16 @@
     },
     "dependencies": {
         "@tauri-apps/api": "^1.1.0",
+        "ansi-html-community": "0.0.8",
         "bulma": "^0.9.4",
         "clsx": "^1.2.1",
+        "escape-html": "^1.0.3",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
         "@tauri-apps/cli": "^1.1.1",
-        "@types/eslint": "^8",
+        "@types/escape-html": "^1.0.2",
         "@types/node": "^18.7.21",
         "@types/react": "^18.0.21",
         "@types/react-dom": "^18.0.6",

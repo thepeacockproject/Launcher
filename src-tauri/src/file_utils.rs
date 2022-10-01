@@ -98,10 +98,7 @@ pub fn unzip_to_directory(zip_path: &PathBuf, out_dir: &PathBuf) {
         let out_path = out_dir.join(file.mangled_name());
 
         if (&*file.name()).ends_with("/") {
-            println!(
-                "Dir created: \"{}\"",
-                out_path.as_path().display()
-            );
+            println!("Dir created: \"{}\"", out_path.as_path().display());
             std::fs::create_dir_all(&out_path)
                 .or(Err(format!(
                     "Failed to create directory at '{}'",
