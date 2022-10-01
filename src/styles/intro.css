@@ -1,0 +1,20 @@
+.welcome-text,
+.launcher-text {
+    text-shadow: 4px 2px 3px #000;
+}
+
+.begin-button {
+    text-shadow: 3px 2px 5px #000;
+}
+
+.middle-child div {
+    margin-top: 30.5%;
+    margin-bottom: 12.5%;
+}
+
+.hero-body {
+    margin-bottom: 25%;
+}
+.welcome-text {
+    font-size: 38px;
+}
