@@ -10,7 +10,7 @@ pub async fn download_file(client: &Client, url: &str, path: &str) -> Result<(),
         .get(url)
         .send()
         .await
-        .or(Err(format!("Failed to GET from '{}'", &url)))?;
+        .map_err(|_| format!("Failed to GET from '{}'", &url))?;
 
     let total_size = res.content_length();
 
@@ -21,18 +21,18 @@ pub async fn download_file(client: &Client, url: &str, path: &str) -> Result<(),
     let total_size_u64 = total_size.unwrap();
 
     // download chunks
-    let mut file = File::create(path).or(Err(format!("Failed to create file '{}'", path)))?;
+    let mut file = File::create(path).map_err(|_| format!("Failed to create file '{}'", path))?;
     let mut downloaded: u64 = 0;
     let mut stream = res.bytes_stream();
 
     while let Some(item) = stream.next().await {
-        let chunk = item.or(Err(format!("Error while downloading file")))?;
+        let chunk = item.map_err(|_| "Error while downloading file".to_string())?;
         file.write_all(&chunk)
-            .or(Err(format!("Error while writing to file")))?;
+            .map_err(|_| "Error while writing to file".to_string())?;
         let new = min(downloaded + (chunk.len() as u64), total_size_u64);
         downloaded = new;
         println!("Downloaded {} of {}", new, total_size_u64);
     }
 
-    return Ok(());
+    Ok(())
 }

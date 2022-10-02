@@ -9,12 +9,15 @@ mod http_utils;
 mod structs;
 
 use crate::commands::{download_version, is_first_time, launch_test, unzip_test};
+use crate::file_utils::ensure_directory_structure;
 use crate::structs::AppState;
 use tauri::Manager;
 
 #[tokio::main]
 async fn main() {
+    // get the config, and if it's the first time, create the directory structure
     let config = file_utils::load_config().expect("Failed to load config");
+    ensure_directory_structure();
 
     tauri::Builder::default()
         .manage(AppState {
