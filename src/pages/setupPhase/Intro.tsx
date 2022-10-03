@@ -5,30 +5,35 @@ import { Phase, SetupCommonProps } from "../FirstTimeSetupPage"
 export default function Intro(props: SetupCommonProps) {
     return (
         <Layout>
-            <section className="hero-body">
-                <h1 className="title">Peacock Launcher</h1>
+            <section>
+                <h1 className="text-white text-center text-4xl pt-10">
+                    Peacock Launcher
+                </h1>
 
-                {IS_DEVELOPMENT && (
-                    <button onClick={() => props.setPhase(Phase.Testing)}>
-                        Secret testing page
-                    </button>
-                )}
+                <p className="text-white text-center pt-5">
+                    Welcome, let's get started!
+                </p>
 
-                <div className="container middle-child has-text-centered">
-                    <div>
-                        <p className="title">Welcome, let's get started!</p>
-                    </div>
-                </div>
-
-                <div className="container has-text-centered">
+                <div className="flex justify-center pt-5">
                     <button
                         type="button"
-                        className="button is-primary"
+                        className="justify-center bg-green-500 rounded p-2"
                         onClick={() => props.setPhase(Phase.PickGameVersion)}
                     >
                         Begin Setup
                     </button>
                 </div>
+
+                {IS_DEVELOPMENT && (
+                    <div>
+                        <button
+                            className="bg-gray-600 text-white rounded p-2"
+                            onClick={() => props.setPhase(Phase.Testing)}
+                        >
+                            Secret testing page
+                        </button>
+                    </div>
+                )}
             </section>
         </Layout>
     )

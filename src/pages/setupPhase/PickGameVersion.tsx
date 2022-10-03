@@ -7,11 +7,11 @@ export default function PickGameVersion(props: SetupCommonProps) {
     return (
         <Layout>
             <section className="hero-body">
-                <h1 className="title">Peacock Launcher</h1>
+                <h1 className="title text-center">Peacock Launcher</h1>
 
                 <SelectGameVersion />
 
-                <div className="has-text-centered">
+                <div className="text-center">
                     <button
                         type="button"
                         className="button is-primary"

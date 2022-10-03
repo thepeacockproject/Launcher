@@ -36,11 +36,16 @@ export default function SelectGameVersion() {
     // )
 
     return (
-        <form className="box">
-            <p className="title">Please select your preferred game version</p>
-            <p>
-                <i>(You can change this later in settings)</i>
-            </p>
+        <form className="box flex">
+            <div>
+                <p className="title">
+                    Please select your preferred game version
+                </p>
+                <p>
+                    <i>(You can change this later in settings)</i>
+                </p>
+            </div>
+
             <div className="control">
                 <LabelOption
                     group="game-version"

@@ -3,6 +3,7 @@ import { invoke } from "@tauri-apps/api/tauri"
 import LogsPanel from "../components/LogsPanel"
 import { listen } from "@tauri-apps/api/event"
 import { UpdateDispatchingArray } from "../UpdateDispatchingArray"
+import Layout from "../Layout"
 
 /**
  * The logs.
@@ -30,14 +31,26 @@ export default function TestingPanel() {
     }
 
     return (
-        <div>
-            <h1>Testing Panel</h1>
+        <Layout>
+            <section>
+                <h1 className="text-center title text-white">Testing Panel</h1>
 
-            <LogsPanel logs={logs} />
+                <LogsPanel logs={logs} />
 
-            <button onClick={() => invoke("unzip_test")}>
-                Extract from zip
-            </button>
-        </div>
+                <button
+                    className="rounded bg-white p-2"
+                    onClick={() => invoke("unzip_test")}
+                >
+                    Extract from zip
+                </button>
+
+                <button
+                    className="rounded bg-white p-2"
+                    onClick={() => invoke("launch_test")}
+                >
+                    Launch the thing
+                </button>
+            </section>
+        </Layout>
     )
 }

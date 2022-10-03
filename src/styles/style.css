@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: "Rubik";
     font-style: normal;
@@ -37,6 +41,19 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+}
+
+.middle-child {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.welcome-text {
+    font-size: 38px;
+}
+
+label.radio:hover {
+    color: white;
 }
 
 .subtitle {

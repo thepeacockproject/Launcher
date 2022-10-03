@@ -6,10 +6,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <nav className="level">
-            <div className="level-item has-text-centered">
-                <div>{children}</div>
-            </div>
+        <nav>
+            <div>{children}</div>
         </nav>
     )
 }

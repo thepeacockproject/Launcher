@@ -2,6 +2,7 @@ use crate::file_utils::{get_data_dir, unzip_to_directory};
 use crate::http_utils::download_file;
 use crate::AppState;
 use reqwest::Client;
+use std::collections::HashMap;
 use task::spawn;
 use tauri::api::process::{Command, CommandEvent};
 use tauri::async_runtime::block_on;
@@ -37,13 +38,19 @@ pub fn unzip_test() {
 #[tauri::command]
 pub async fn launch_test(window: Window<Wry>) {
     let (data_dir, _) = get_data_dir(false).expect("Failed to get data dir");
-    let exe_path = data_dir.join("Peacock-v5.2.1/main.sh");
+    let exe_path = data_dir.join("Peacock-v5.2.1/chunk0.js");
 
-    let (mut rx, _) = Command::new(String::from(
-        exe_path.to_str().expect("EXE path should be valid str."),
-    ))
-    .spawn()
-    .expect("Failed to execute command");
+    let mut environment = HashMap::new();
+
+    environment.insert("NODE_ENV".to_string(), "production".to_string());
+    environment.insert("FORCE_COLOR".to_string(), "true".to_string());
+    environment.insert("SUPPORTS_COLOR".to_string(), "true".to_string());
+
+    let (mut rx, _) = Command::new(String::from("node"))
+        .envs(environment)
+        .args(&[exe_path.to_str().expect("EXE path should be valid str.")])
+        .spawn()
+        .expect("Failed to execute command");
 
     tauri::async_runtime::spawn(async move {
         while let Some(event) = rx.recv().await {
