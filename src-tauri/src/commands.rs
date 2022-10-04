@@ -44,10 +44,12 @@ pub async fn launch_test(window: Window<Wry>) {
 
     environment.insert("NODE_ENV".to_string(), "production".to_string());
     environment.insert("FORCE_COLOR".to_string(), "true".to_string());
+    environment.insert("IS_PEACOCK_LAUNCHER".to_string(), "true".to_string());
     environment.insert("SUPPORTS_COLOR".to_string(), "true".to_string());
 
     let (mut rx, _) = Command::new(String::from("node"))
         .envs(environment)
+        .current_dir(data_dir.join("workspace"))
         .args(&[exe_path.to_str().expect("EXE path should be valid str.")])
         .spawn()
         .expect("Failed to execute command");

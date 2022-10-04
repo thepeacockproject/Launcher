@@ -6,21 +6,21 @@ import SelectGameVersion from "../../components/SelectGameVersion"
 export default function PickGameVersion(props: SetupCommonProps) {
     return (
         <Layout>
-            <section className="hero-body">
-                <h1 className="title text-center">Peacock Launcher</h1>
+            <h1 className="text-white p-4 text-center text-4xl">
+                Peacock Launcher
+            </h1>
 
-                <SelectGameVersion />
+            <SelectGameVersion />
 
-                <div className="text-center">
-                    <button
-                        type="button"
-                        className="button is-primary"
-                        onClick={() => props.setPhase(null!)}
-                    >
-                        Next
-                    </button>
-                </div>
-            </section>
+            <div className="text-center">
+                <button
+                    type="button"
+                    className="rounded bg-green-600 text-white pt-1 pb-1 pl-2 pr-2"
+                    onClick={() => props.setPhase(null!)}
+                >
+                    Next
+                </button>
+            </div>
         </Layout>
     )
 }

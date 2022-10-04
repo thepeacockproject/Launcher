@@ -6,8 +6,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <nav>
+        <section>
             <div>{children}</div>
-        </nav>
+        </section>
     )
 }

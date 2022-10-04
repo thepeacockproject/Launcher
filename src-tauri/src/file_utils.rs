@@ -2,7 +2,7 @@ use crate::structs::AppConfig;
 use std::path::{Path, PathBuf};
 use zip::ZipArchive;
 
-static SUB_DIRS: [&str; 2] = ["versions", "plugins"];
+static SUB_DIRS: [&str; 3] = ["versions", "plugins", "workspace"];
 
 /// Makes sure a directory exists, and creates it if it doesn't.
 /// Returns true if it already existed, false if not.
@@ -156,5 +156,6 @@ pub fn unzip_to_directory(zip_path: &PathBuf, out_dir: &Path) {
         );
     }
 
+    #[cfg(dev)]
     println!("Done extracting.");
 }
