@@ -52,13 +52,13 @@ export default function SelectGameVersion() {
                     name="HITMAN&trade; 3"
                     getSet={[version!, setVersion]}
                 />
-                <br></br>
+                <br />
                 <LabelOption
                     group="game-version"
                     name="HITMAN&trade; 2"
                     getSet={[version!, setVersion]}
                 />
-                <br></br>
+                <br />
                 <LabelOption
                     group="game-version"
                     name="HITMAN&trade; (2016)"
@@ -72,7 +72,7 @@ export default function SelectGameVersion() {
                     group="provider"
                     getSet={[platform!, setPlatform]}
                 />
-                <br></br>
+                <br />
                 <LabelOption
                     name="Steam"
                     group="provider"

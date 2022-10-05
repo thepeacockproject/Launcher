@@ -2,7 +2,12 @@ use crate::structs::AppConfig;
 use std::path::{Path, PathBuf};
 use zip::ZipArchive;
 
-static SUB_DIRS: [&str; 3] = ["versions", "plugins", "workspace"];
+/// The sub-directories that are created in the data directory.
+/// `versions` contains Peacock versions (folders).
+/// `plugins` contains plugins (JS files).
+/// `workspace` is the working directory for Peacock.
+/// `engines` contains all Node.js versions.
+static SUB_DIRS: [&str; 4] = ["versions", "plugins", "workspace", "engines"];
 
 /// Makes sure a directory exists, and creates it if it doesn't.
 /// Returns true if it already existed, false if not.
@@ -158,4 +163,47 @@ pub fn unzip_to_directory(zip_path: &PathBuf, out_dir: &Path) {
 
     #[cfg(dev)]
     println!("Done extracting.");
+}
+
+/// List a directory, and return a list of all files in it without the prefix.
+fn list_dir_with_prefix(dir: &Path, prefix: &str) -> Vec<String> {
+    let mut entries = vec![];
+
+    for entry in std::fs::read_dir(dir)
+        .unwrap_or_else(|_| panic!("Failed to read {} dir", dir.to_str().unwrap()))
+    {
+        let entry = entry.expect("Failed to get entry");
+        let path = entry.path();
+
+        if path.is_dir() {
+            // this is a version, remove the prefix part
+            let new_entry_name = path
+                .file_name()
+                .unwrap()
+                .to_str()
+                .unwrap()
+                .replace(prefix, "");
+
+            entries.push(new_entry_name);
+        }
+    }
+
+    entries
+}
+
+#[allow(dead_code)]
+pub fn get_installed_peacock_versions() -> Vec<String> {
+    let (data_dir, _) = get_data_dir(false).expect("Failed to get data dir");
+    let versions_dir = data_dir.join("versions");
+
+    list_dir_with_prefix(&versions_dir, "Peacock-")
+}
+
+#[allow(dead_code)]
+/// Get the installed Node.js versions
+pub fn get_installed_node_versions() -> Vec<String> {
+    let (data_dir, _) = get_data_dir(false).expect("Failed to get data dir");
+    let versions_dir = data_dir.join("engines");
+
+    list_dir_with_prefix(&versions_dir, "node-")
 }
