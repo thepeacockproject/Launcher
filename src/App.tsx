@@ -25,9 +25,9 @@ function App() {
     }, [isFirstTime])
 
     // TODO: re-enable this check!
-    // if (isFirstTime === true) {
-    return <FirstTimeSetupPage />
-    // }
+    if (isFirstTime === true) {
+        return <FirstTimeSetupPage />
+    }
 
     return <HomePage />
 }

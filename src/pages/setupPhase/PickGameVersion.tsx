@@ -1,4 +1,4 @@
-import { SetupCommonProps } from "../FirstTimeSetupPage"
+import { Phase, SetupCommonProps } from "../FirstTimeSetupPage"
 import Layout from "../../Layout"
 import * as React from "react"
 import SelectGameVersion from "../../components/SelectGameVersion"
@@ -7,7 +7,7 @@ export default function PickGameVersion(props: SetupCommonProps) {
     return (
         <Layout>
             <section className="hero-body">
-                <h1 className="title">Peacock Launcher</h1>
+                <h1 className="title launcher-text">Peacock Launcher</h1>
 
                 <SelectGameVersion />
 
