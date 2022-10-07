@@ -4,7 +4,7 @@ import "./../styles/homepage.css"
 // @ts-expect-error Untyped asset
 import julyroadmap from "../assets/images/julyroadmap.png"
 // @ts-expect-error Untyped asset
-import YES_Vikov from "../assets/images/YES_Vikov.png"
+import settings from "../assets/images/settings.png"
 
 // export interface HomePageProps {
 //
@@ -29,9 +29,8 @@ export default function HomePage() {
                         <br />
                     </div>
                     <span className="patcherState">
-                        <p>Patcher state:</p>
                         {/*<img src={$patcherState}></img>*/}
-                        <img src={YES_Vikov}></img>
+                        <img src={settings}></img>
                     </span>
                     <span className="cockVersion bottom-page-margin">
                         {/*$cockVersion*/}
