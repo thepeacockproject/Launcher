@@ -21,19 +21,19 @@ export default function HomePage() {
                             <div className="button-wrapper">
                                 <button
                                     type="button"
-                                    className="button margin-button"
+                                    className="button margin-button bg-blue-500"
                                 >
                                     Menu
                                 </button>
                                 <button
                                     type="button"
-                                    className="button margin-button"
+                                    className="button margin-button bg-blue-500"
                                 >
                                     Start Peacock
                                 </button>
                                 <button
                                     type="button"
-                                    className="button launch-button"
+                                    className="button launch-button bg-blue-500"
                                 >
                                     v6.9.0
                                 </button>
