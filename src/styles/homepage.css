@@ -1,0 +1,25 @@
+.roadmap {
+    width: 70vw;
+    height: auto;
+    margin-left: 15vw;
+    margin-top: 13.5vw;
+}
+
+.button {
+    background: #0d99ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 3vh;
+    color: white;
+    width: 22.5vw;
+}
+
+.margin-button {
+    margin-right: 10px;
+}
+
+.button-wrapper {
+    font-size: 150%;
+    margin-left: 15vw;
+    max-width: 70vw;
+}

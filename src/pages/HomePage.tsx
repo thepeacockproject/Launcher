@@ -1,5 +1,8 @@
 import * as React from "react"
 import Layout from "../Layout"
+import "../styles/homepage.css"
+// @ts-expect-error Untyped asset
+import roadmap from "../assets/images/roadmap.png"
 
 // export interface HomePageProps {
 //
@@ -10,17 +13,31 @@ export default function HomePage() {
     return (
         <Layout>
             <section>
-                <div className="hero-head">
-                    <h1 className="title">Peacock Launcher</h1>
-                </div>
-
                 <div>
                     <div className="container has-text-centered">
                         <div>
-                            <p>Placeholder page</p>
-                            <button type="button" className="button">
-                                Start Peacock
-                            </button>
+                            <img className="roadmap" src={roadmap} alt="" />
+                            {/*<p>Placeholder page</p>*/}
+                            <div className="button-wrapper">
+                                <button
+                                    type="button"
+                                    className="button margin-button"
+                                >
+                                    Menu
+                                </button>
+                                <button
+                                    type="button"
+                                    className="button margin-button"
+                                >
+                                    Start Peacock
+                                </button>
+                                <button
+                                    type="button"
+                                    className="button launch-button"
+                                >
+                                    v6.9.0
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

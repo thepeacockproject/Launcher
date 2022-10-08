@@ -24,10 +24,9 @@ function App() {
 
     // TODO: re-enable this check!
     // if (isFirstTime === true) {
+    return <HomePage />
     return <FirstTimeSetupPage />
     // }
-
-    return <HomePage />
 }
 
 export default App
