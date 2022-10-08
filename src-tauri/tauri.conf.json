@@ -57,10 +57,10 @@
         "windows": [
             {
                 "fullscreen": false,
-                "height": 600,
+                "height": 900,
                 "resizable": false,
                 "title": "Peacock Launcher",
-                "width": 800
+                "width": 1400
             }
         ]
     }

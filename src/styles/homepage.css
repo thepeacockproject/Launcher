@@ -3,14 +3,16 @@
     height: auto;
     margin-left: 15vw;
     margin-top: 13.5vw;
+    position: relative;
 }
 
 .button {
-    padding: 10px;
+    padding: 10px 0;
     border-radius: 5px;
     margin-top: 3vh;
     color: white;
-    width: 22.5vw;
+    width: calc(23.33vw - 6.7px);
+    /*half pixels somehow mess with it?*/
 }
 
 .margin-button {
