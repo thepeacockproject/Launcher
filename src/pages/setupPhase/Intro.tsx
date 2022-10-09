@@ -1,5 +1,6 @@
 import Layout from "../../Layout"
 import * as React from "react"
+import "../../styles/firstTimeSetup.css"
 import { Phase, SetupCommonProps } from "../FirstTimeSetupPage"
 
 export default function Intro(props: SetupCommonProps) {
@@ -16,7 +17,7 @@ export default function Intro(props: SetupCommonProps) {
             <div className="flex justify-center pt-5">
                 <button
                     type="button"
-                    className="justify-center bg-green-500 rounded p-2"
+                    className="justify-center bg-green-500 rounded p-2 setup-button"
                     onClick={() => props.setPhase(Phase.PickGameVersion)}
                 >
                     Begin Setup
@@ -26,7 +27,7 @@ export default function Intro(props: SetupCommonProps) {
             {IS_DEVELOPMENT && (
                 <div>
                     <button
-                        className="bg-gray-600 text-white rounded p-2"
+                        className="bg-gray-600 text-white rounded p-2 testing-button"
                         onClick={() => props.setPhase(Phase.Testing)}
                     >
                         Secret testing page

@@ -1,0 +1,16 @@
+h1 {
+    margin-top: 35.65vh;
+}
+p {
+    font-size: 140%;
+}
+.setup-button {
+    padding: 15px;
+    /*margin-top: 3vh;*/
+    font-size: 150%;
+    margin-top: 4.8px;
+}
+.testing-button {
+    margin-left: 44.2vw;
+    margin-top: 35vh;
+}
