@@ -7,13 +7,12 @@ import Layout from "../Layout"
 
 // @ts-expect-error Untyped asset
 import roadmap from "../assets/images/roadmap.png"
-
-// export interface HomePageProps {
-//
-// }
+import { useNavigate } from "react-router"
+import { Routes } from "../main"
 
 export default function HomePage() {
-    // props: HomePageProps
+    const nav = useNavigate()
+
     return (
         <Layout>
             <section>
@@ -24,7 +23,12 @@ export default function HomePage() {
                             <img className="roadmap" src={roadmap} alt="" />
                             {/*<p>Placeholder page</p>*/}
                             <div className="button-wrapper">
-                                <Button kind="secondary">Menu</Button>
+                                <Button
+                                    kind="secondary"
+                                    onClick={() => nav(Routes.SetupIntro)}
+                                >
+                                    Menu
+                                </Button>
                                 <Button kind="primary">Start Peacock</Button>
                                 <Button kind="secondary">v6.9.0</Button>
                             </div>

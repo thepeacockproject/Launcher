@@ -510,11 +510,20 @@ __metadata:
     prettier: "npm:^2.7.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
+    react-router: "npm:^6.4.2"
+    react-router-dom: "npm:^6.4.2"
     tailwindcss: "npm:^3.1.8"
     typescript: "npm:^4.8.3"
     vite: "npm:^3.1.3"
   languageName: unknown
   linkType: soft
+
+"@remix-run/router@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@remix-run/router@npm:1.0.2"
+  checksum: 190090473d11ced2f1503c5def3195bd5d1bd0bd4fb561c4e2cdc2d9e08a9e51ef2f97de464ef8df068ac88d059b983835bcab5e72b67fc22241a6316172d82d
+  languageName: node
+  linkType: hard
 
 "@tauri-apps/api@npm:^1.1.0":
   version: 1.1.0
@@ -3441,6 +3450,30 @@ __metadata:
   version: 0.14.0
   resolution: "react-refresh@npm:0.14.0"
   checksum: 0dc7d5a197ae193f0bddea2f8d712a2b8477ae401c9e3b04c85d0a046ac7847b24af573923ab4c3ca67735583a6b421edc43b39a07b4d1a46056289249f4f897
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:^6.4.2":
+  version: 6.4.2
+  resolution: "react-router-dom@npm:6.4.2"
+  dependencies:
+    "@remix-run/router": "npm:1.0.2"
+    react-router: "npm:6.4.2"
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: e9ed9473e0c48aa73035182f543fcc99389ffa02365e63bb8e98633bfbbae39874a17394f9bfe91f1e216835a4be253f02137ef72ffb195cfe2710da4440cd48
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.4.2, react-router@npm:^6.4.2":
+  version: 6.4.2
+  resolution: "react-router@npm:6.4.2"
+  dependencies:
+    "@remix-run/router": "npm:1.0.2"
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 5cd99582ac3d61d79097649feaf1dc63fa1a3be2e5cfc254eadb9f19ad190dbefe026c9c656e7b0b9f920979dde8bb7d7b044425bf5ed329f93801843683ab3a
   languageName: node
   linkType: hard
 

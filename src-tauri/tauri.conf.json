@@ -58,7 +58,7 @@
             {
                 "fullscreen": false,
                 "height": 900,
-                "resizable": false,
+                "resizable": true,
                 "title": "Peacock Launcher",
                 "width": 1400
             }

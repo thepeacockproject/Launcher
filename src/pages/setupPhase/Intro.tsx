@@ -1,11 +1,13 @@
 import * as React from "react"
 
-import { Phase, SetupCommonProps } from "../FirstTimeSetupPage"
-
 import Button from "../../components/Button"
 import Layout from "../../Layout"
+import { useNavigate } from "react-router"
+import { Routes } from "../../main"
 
-export default function Intro(props: SetupCommonProps) {
+export default function Intro() {
+    const nav = useNavigate()
+
     return (
         <Layout>
             <div className="flex flex-col justify-center items-center gap-4 h-full">
@@ -19,12 +21,18 @@ export default function Intro(props: SetupCommonProps) {
                     </p>
                 </div>
 
-                <Button kind="primary" onClick={() => props.setPhase(Phase.PickGameVersion)}>Begin Setup</Button>
+                <Button
+                    kind="primary"
+                    onClick={() => nav(Routes.SetupGameVersion)}
+                >
+                    Begin Setup
+                </Button>
 
                 {IS_DEVELOPMENT && (
                     <div>
-                        <Button kind="secondary"
-                            onClick={() => props.setPhase(Phase.Testing)}
+                        <Button
+                            kind="secondary"
+                            onClick={() => nav(Routes.TestingPanel)}
                         >
                             Secret testing page
                         </Button>

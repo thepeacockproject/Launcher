@@ -3,9 +3,12 @@ import * as React from "react"
 import Button from "../../components/Button"
 import Layout from "../../Layout"
 import SelectGameVersion from "../../components/SelectGameVersion"
-import { SetupCommonProps } from "../FirstTimeSetupPage"
+import { useNavigate } from "react-router"
+import { Routes } from "../../main"
 
-export default function PickGameVersion(props: SetupCommonProps) {
+export default function PickGameVersion() {
+    const nav = useNavigate()
+
     return (
         <Layout>
             <div className="flex flex-col justify-center items-center gap-4 h-full">
@@ -15,8 +18,7 @@ export default function PickGameVersion(props: SetupCommonProps) {
 
                 <SelectGameVersion />
 
-                {/* TODO: go to homepage */}
-                <Button kind="primary" onClick={() => props.setPhase(null!)}>
+                <Button kind="primary" onClick={() => nav(Routes.Home)}>
                     Next
                 </Button>
             </div>
