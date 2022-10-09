@@ -1,0 +1,16 @@
+.launcher-text {
+    margin-top: 25vh;
+}
+
+.game-version {
+    margin-left: 15vw;
+    max-width: 70vw;
+}
+
+.next-button-wrapper button {
+    margin-top: 60px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: white;
+    font-size: 150%;
+}
