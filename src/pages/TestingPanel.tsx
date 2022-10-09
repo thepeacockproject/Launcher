@@ -3,6 +3,7 @@ import { invoke } from "@tauri-apps/api/tauri"
 import LogsPanel from "../components/LogsPanel"
 import { listen } from "@tauri-apps/api/event"
 import { UpdateDispatchingArray } from "../UpdateDispatchingArray"
+import "../styles/logs.css"
 import Layout from "../Layout"
 
 /**
@@ -35,21 +36,42 @@ export default function TestingPanel() {
             <section>
                 <h1 className="text-center title text-white">Testing Panel</h1>
 
-                <LogsPanel logs={logs} />
+                <div className="log-wrapper">
+                    <LogsPanel logs={logs} />
+                </div>
+                {/*<button*/}
+                {/*    className="rounded bg-white p-2"*/}
+                {/*    onClick={() => invoke("unzip_test")}*/}
+                {/*>*/}
+                {/*    Extract from zip*/}
+                {/*</button>*/}
 
-                <button
-                    className="rounded bg-white p-2"
-                    onClick={() => invoke("unzip_test")}
-                >
-                    Extract from zip
-                </button>
-
-                <button
-                    className="rounded bg-white p-2"
-                    onClick={() => invoke("launch_test")}
-                >
-                    Launch the thing
-                </button>
+                {/*<button*/}
+                {/*    className="rounded bg-white p-2"*/}
+                {/*    onClick={() => invoke("launch_test")}*/}
+                {/*>*/}
+                {/*    Launch the thing*/}
+                {/*</button>*/}
+                <div className="button-wrapper">
+                    <button
+                        type="button"
+                        className="button margin-button bg-blue-500"
+                    >
+                        Menu
+                    </button>
+                    <button
+                        type="button"
+                        className="button margin-button bg-red-500"
+                    >
+                        Stop Peacock
+                    </button>
+                    <button
+                        type="button"
+                        className="button launch-button bg-blue-500"
+                    >
+                        v6.9.0
+                    </button>
+                </div>
             </section>
         </Layout>
     )
