@@ -1,12 +1,12 @@
 import * as React from "react"
 
-function LabelOption(props: {
+function LabelledOption(props: {
     name: string
     group: string
     getSet: [string, React.Dispatch<string>]
 }) {
     return (
-        <label className="radio">
+        <label className="hover:text-neutral-300">
             <input
                 type="radio"
                 name={props.group}
@@ -36,44 +36,42 @@ export default function SelectGameVersion() {
     // )
 
     return (
-        <form className="box flex">
+        <form className="bg-zinc-700 text-white flex gap-8 rounded p-4">
             <div>
-                <p className="title">
+                <h2 className="text-2xl">
                     Please select your preferred game version
-                </p>
-                <p>
-                    <i>(You can change this later in settings)</i>
-                </p>
+                </h2>
+                <i>You can change this later in the Settings page.</i>
             </div>
 
-            <div className="control">
-                <LabelOption
+            <div>
+                <LabelledOption
                     group="game-version"
                     name="HITMAN&trade; 3"
                     getSet={[version!, setVersion]}
                 />
                 <br />
-                <LabelOption
+                <LabelledOption
                     group="game-version"
                     name="HITMAN&trade; 2"
                     getSet={[version!, setVersion]}
                 />
                 <br />
-                <LabelOption
+                <LabelledOption
                     group="game-version"
                     name="HITMAN&trade; (2016)"
                     getSet={[version!, setVersion]}
                 />
             </div>
 
-            <div className="control">
-                <LabelOption
+            <div>
+                <LabelledOption
                     name="Epic"
                     group="provider"
                     getSet={[platform!, setPlatform]}
                 />
                 <br />
-                <LabelOption
+                <LabelledOption
                     name="Steam"
                     group="provider"
                     getSet={[platform!, setPlatform]}

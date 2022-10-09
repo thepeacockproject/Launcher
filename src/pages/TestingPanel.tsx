@@ -1,9 +1,11 @@
 import * as React from "react"
-import { invoke } from "@tauri-apps/api/tauri"
-import LogsPanel from "../components/LogsPanel"
-import { listen } from "@tauri-apps/api/event"
-import { UpdateDispatchingArray } from "../UpdateDispatchingArray"
+
+import Button from "../components/Button"
 import Layout from "../Layout"
+import LogsPanel from "../components/LogsPanel"
+import { UpdateDispatchingArray } from "../UpdateDispatchingArray"
+import { invoke } from "@tauri-apps/api/tauri"
+import { listen } from "@tauri-apps/api/event"
 
 /**
  * The logs.
@@ -32,25 +34,27 @@ export default function TestingPanel() {
 
     return (
         <Layout>
-            <section>
-                <h1 className="text-center title text-white">Testing Panel</h1>
+            <div className="p-4">
+                <h1 className="text-center text-4xl text-white">
+                    Testing Panel
+                </h1>
 
                 <LogsPanel logs={logs} />
+                <br />
 
-                <button
-                    className="rounded bg-white p-2"
-                    onClick={() => invoke("unzip_test")}
-                >
-                    Extract from zip
-                </button>
+                <div className="flex gap-2">
+                    <Button kind="primary" onClick={() => invoke("unzip_test")}>
+                        Extract from zip
+                    </Button>
 
-                <button
-                    className="rounded bg-white p-2"
-                    onClick={() => invoke("launch_test")}
-                >
-                    Launch the thing
-                </button>
-            </section>
+                    <Button
+                        kind="primary"
+                        onClick={() => invoke("launch_test")}
+                    >
+                        Launch the thing
+                    </Button>
+                </div>
+            </div>
         </Layout>
     )
 }

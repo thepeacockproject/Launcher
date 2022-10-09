@@ -1,7 +1,9 @@
-import * as React from "react"
 import "../styles/logs.css"
-import { UpdateDispatchingArray } from "../UpdateDispatchingArray"
+
+import * as React from "react"
+
 import Convert from "ansi-to-html"
+import { UpdateDispatchingArray } from "../UpdateDispatchingArray"
 
 const convert = new Convert({
     colors: {
@@ -19,7 +21,7 @@ export interface LogsPanelProps {
 export default function LogsPanel(props: LogsPanelProps) {
     return (
         <div>
-            <div className="title">Logs</div>
+            <h2 className="text-3xl text-white mb-2">Logs</h2>
             <div>
                 <div className="log-group">
                     {props.logs.map((log, i) => {

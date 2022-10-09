@@ -1,6 +1,10 @@
-import * as React from "react"
-import Layout from "../Layout"
 import "../styles/homepage.css"
+
+import * as React from "react"
+
+import Button from "../components/Button"
+import Layout from "../Layout"
+
 // @ts-expect-error Untyped asset
 import roadmap from "../assets/images/roadmap.png"
 
@@ -14,29 +18,15 @@ export default function HomePage() {
         <Layout>
             <section>
                 <div>
+                    {/* TODO: change to tailwind styles */}
                     <div className="container has-text-centered">
                         <div>
                             <img className="roadmap" src={roadmap} alt="" />
                             {/*<p>Placeholder page</p>*/}
                             <div className="button-wrapper">
-                                <button
-                                    type="button"
-                                    className="button margin-button bg-blue-500"
-                                >
-                                    Menu
-                                </button>
-                                <button
-                                    type="button"
-                                    className="button margin-button bg-blue-500"
-                                >
-                                    Start Peacock
-                                </button>
-                                <button
-                                    type="button"
-                                    className="button launch-button bg-blue-500"
-                                >
-                                    v6.9.0
-                                </button>
+                                <Button kind="secondary">Menu</Button>
+                                <Button kind="primary">Start Peacock</Button>
+                                <Button kind="secondary">v6.9.0</Button>
                             </div>
                         </div>
                     </div>

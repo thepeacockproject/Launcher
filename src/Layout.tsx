@@ -6,8 +6,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <section>
-            <div>{children}</div>
+        <section className="h-full w-full">
+            <div className="h-full w-full">{children}</div>
         </section>
     )
 }
