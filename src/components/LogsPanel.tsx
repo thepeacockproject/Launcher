@@ -8,7 +8,20 @@ import { UpdateDispatchingArray } from "../UpdateDispatchingArray"
 const convert = new Convert({
     colors: {
         0: "#FFF",
-        // dark gray
+        1: "#A00",
+        2: "#0A0",
+        3: "#A50",
+        4: "#5959ff",
+        5: "#A0A",
+        6: "#0AA",
+        7: "#AAA",
+        8: "#6b6b6b",
+        9: "#F55",
+        10: "#5F5",
+        11: "#FF5",
+        12: "#55F",
+        13: "#F5F",
+        14: "#5FF",
         15: "#AAA",
     },
     fg: "#FFF",
