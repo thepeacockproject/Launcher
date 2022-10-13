@@ -57,6 +57,7 @@
         "windows": [
             {
                 "fullscreen": false,
+				"center": true,
                 "height": 900,
                 "resizable": true,
                 "title": "Peacock Launcher",
