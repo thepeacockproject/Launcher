@@ -36,11 +36,17 @@ jobs:
             - name: Install Dependencies
               run: yarn
 
-            - name: Dependency Build Cache
-              uses: actions/cache@v3.0.8
+            - name: Rust Cache
+              uses: Swatinem/rust-cache@v2
               with:
-                  path: src-tauri/target
-                  key: target-1
+                  cache-on-failure: true
+                  workspaces: "src-tauri -> src-tauri/target"
+#
+#            - name: Dependency Build Cache
+#              uses: actions/cache@v3.0.8
+#              with:
+#                  path: src-tauri/target
+#                  key: target-1
 
             - name: Build Launcher Binary
               run: yarn build
