@@ -64,6 +64,18 @@ pub async fn launch_test(window: Window<Wry>) {
                         .expect("Failed to emit output");
                 }
                 CommandEvent::Terminated(_) => return,
+                CommandEvent::Stderr(line) => {
+                    eprintln!("stderr: {}", line);
+                    window
+                        .emit("log_message", line)
+                        .expect("Failed to emit output");
+                },
+                CommandEvent::Error(err) => {
+                    eprintln!("error: {}", err);
+                    window
+                        .emit("log_message", err)
+                        .expect("Failed to emit output");
+                },
                 _ => {}
             }
         }
