@@ -8,7 +8,7 @@ mod file_utils;
 mod http_utils;
 mod structs;
 
-use crate::commands::{download_version, is_first_time, launch_test, unzip_test};
+use crate::commands::{download_version, is_first_time, launch_version, unzip_test};
 use crate::file_utils::ensure_directory_structure;
 use crate::structs::AppState;
 use tauri::Manager;

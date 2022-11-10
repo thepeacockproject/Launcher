@@ -55,11 +55,7 @@ pub fn load_config() -> Result<(AppConfig, bool), String> {
 
     // if the config file doesn't exist, create it
     if !config_path.exists() {
-        let config = AppConfig {
-            installed_versions: vec![],
-        };
-        save_config(&config)?;
-        return Ok((config, true));
+        write_new_config().expect("Failed to write new config");
     }
 
     // read the config file
@@ -69,10 +65,31 @@ pub fn load_config() -> Result<(AppConfig, bool), String> {
             config_path.to_str().unwrap()
         )
     })?;
-    let config: AppConfig =
-        serde_json::from_reader(config_file).or(Err("Failed to parse config file!"))?;
+
+    let config: AppConfig;
+
+    // parse the config from json, or run write_new_config if it errors
+    let read_config = serde_json::from_reader(&config_file);
+
+    if read_config.is_err() {
+        // if we failed to read the config, we probably have changed the schema since
+        // (we'll just re-create it)
+        write_new_config().expect("Failed to write new config");
+        config = serde_json::from_reader(&config_file).expect("Should now have the config");
+    } else {
+        config = read_config.unwrap();
+    }
 
     Ok((config, false))
+}
+
+/// Write the default config file to the persistent data directory
+fn write_new_config() -> Result<(AppConfig, bool), String> {
+    let config = AppConfig {
+        active_version: "".parse().unwrap(),
+    };
+    save_config(&config)?;
+    return Ok((config, true));
 }
 
 /// Save the configuration file to the persistent data directory
@@ -189,14 +206,6 @@ fn list_dir_with_prefix(dir: &Path, prefix: &str) -> Vec<String> {
     }
 
     entries
-}
-
-#[allow(dead_code)]
-pub fn get_installed_peacock_versions() -> Vec<String> {
-    let (data_dir, _) = get_data_dir(false).expect("Failed to get data dir");
-    let versions_dir = data_dir.join("versions");
-
-    list_dir_with_prefix(&versions_dir, "Peacock-")
 }
 
 #[allow(dead_code)]

@@ -7,7 +7,7 @@ pub struct AppState {
 
 #[derive(Serialize, Deserialize)]
 pub struct AppConfig {
-    pub installed_versions: Vec<Version>,
+    pub active_version: String,
 }
 
 #[derive(Deserialize)]
@@ -15,10 +15,4 @@ pub struct RemoteVersion {
     pub ident: String,
     pub is_latest: bool,
     pub url: String,
-}
-
-#[derive(Serialize, Deserialize)]
-pub struct Version {
-    pub ident: String,
-    pub node_version: String,
 }

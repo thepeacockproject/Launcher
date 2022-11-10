@@ -11,6 +11,7 @@ use tokio::task;
 
 #[tauri::command]
 pub fn download_version(version: &str) {
+    // TODO: Unfinished implementation
     println!("Downloading version {}", version);
 
     let client = Client::new();
@@ -36,9 +37,11 @@ pub fn unzip_test() {
 }
 
 #[tauri::command]
-pub async fn launch_test(window: Window<Wry>) {
+pub async fn launch_version(window: Window<Wry>, state: AppState) {
+    // TODO: Unfinished implementation
+
     let (data_dir, _) = get_data_dir(false).expect("Failed to get data dir");
-    let exe_path = data_dir.join("Peacock-v5.2.1/chunk0.js");
+    let chunk0_path = data_dir.join(format!("Peacock-{0}/chunk0.js", state.config.active_version));
 
     let mut environment = HashMap::new();
 
@@ -50,7 +53,7 @@ pub async fn launch_test(window: Window<Wry>) {
     let (mut rx, _) = Command::new(String::from("node"))
         .envs(environment)
         .current_dir(data_dir.join("workspace"))
-        .args(&[exe_path.to_str().expect("EXE path should be valid str.")])
+        .args(&[chunk0_path.to_str().expect("chunk0 path should be valid str.")])
         .spawn()
         .expect("Failed to execute command");
 
@@ -69,13 +72,13 @@ pub async fn launch_test(window: Window<Wry>) {
                     window
                         .emit("log_message", line)
                         .expect("Failed to emit output");
-                },
+                }
                 CommandEvent::Error(err) => {
                     eprintln!("error: {}", err);
                     window
                         .emit("log_message", err)
                         .expect("Failed to emit output");
-                },
+                }
                 _ => {}
             }
         }
