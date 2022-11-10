@@ -35,7 +35,7 @@ async fn main() {
             is_first_time,
             download_version,
             unzip_test,
-            launch_test,
+            launch_version,
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Peacock Launcher");
