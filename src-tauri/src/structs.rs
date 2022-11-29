@@ -1,5 +1,6 @@
 use serde::{Deserialize, Serialize};
 
+#[derive(Deserialize)]
 pub struct AppState {
     pub is_first_time: bool,
     pub config: AppConfig,
