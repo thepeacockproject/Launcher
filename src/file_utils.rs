@@ -23,10 +23,13 @@ fn ensure_dir(dir: &PathBuf) -> bool {
 
 /// Get the path to the persistent data directory
 pub fn get_data_dir(output_data_dir: bool) -> Result<(PathBuf, bool), String> {
-    let data_dir = tauri::api::path::data_dir()
-        .or_else(|| Some("Failed to get data dir".to_string().parse().unwrap()));
+    // get app data directory (different for each OS)
+    let data_dir = match dirs::data_dir() {
+        Some(dir) => dir,
+        None => return Err(String::from("Failed to get data directory")),
+    };
 
-    let data_dir = data_dir.expect("should have data dir").join("peacock");
+    let data_dir = data_dir.join("peacock");
 
     // make sure it exists
     let exists = ensure_dir(&data_dir);
@@ -71,10 +74,18 @@ pub fn load_config() -> Result<(AppConfig, bool), String> {
     // parse the config from json, or run write_new_config if it errors
     let read_config = serde_json::from_reader(&config_file);
 
-    if read_config.is_err() {
+    if let Ok(..) = read_config {
         // if we failed to read the config, we probably have changed the schema since
         // (we'll just re-create it)
         write_new_config().expect("Failed to write new config");
+
+        let config_file = std::fs::File::open(&config_path).map_err(|_| {
+            format!(
+                "Failed to open config file at '{}'",
+                config_path.to_str().unwrap()
+            )
+        })?;
+
         config = serde_json::from_reader(&config_file).expect("Should now have the config");
     } else {
         config = read_config.unwrap();
@@ -89,7 +100,7 @@ fn write_new_config() -> Result<(AppConfig, bool), String> {
         active_version: "".parse().unwrap(),
     };
     save_config(&config)?;
-    return Ok((config, true));
+    Ok((config, true))
 }
 
 /// Save the configuration file to the persistent data directory

@@ -2,7 +2,6 @@ name: Launcher Build
 
 env:
     CARGO_TERM_COLOR: always
-    NODE_VERSION: 18
 
 on:
     push:
@@ -22,25 +21,15 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
-            - name: Install Node.js ${{ env.NODE_VERSION }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ env.NODE_VERSION }}
-                  cache: "yarn"
-
             - name: Install Rust stable
               uses: actions-rs/toolchain@v1
               with:
                   toolchain: stable
 
-            - name: Install Dependencies
-              run: yarn
-
             - name: Rust Cache
               uses: Swatinem/rust-cache@v2
               with:
                   cache-on-failure: true
-                  workspaces: "src-tauri -> target"
 
             - name: Build Launcher Binary
               run: yarn build
@@ -49,4 +38,4 @@ jobs:
               uses: actions/upload-artifact@v3.1.0
               with:
                   name: Launcher
-                  path: src-tauri/target/release/bundle
+                  path: target/release/bundle
