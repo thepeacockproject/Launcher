@@ -32,7 +32,9 @@ jobs:
                   cache-on-failure: true
 
             - name: Build Launcher Binary
-              run: cargo make
+              run: |
+                cargo install --path .
+                cargo make
 
             - name: Upload Launcher Artifacts
               uses: actions/upload-artifact@v3.1.0
