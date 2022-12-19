@@ -32,7 +32,7 @@ jobs:
                   cache-on-failure: true
 
             - name: Build Launcher Binary
-              run: yarn build
+              run: cargo make
 
             - name: Upload Launcher Artifacts
               uses: actions/upload-artifact@v3.1.0
