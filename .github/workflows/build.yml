@@ -33,11 +33,10 @@ jobs:
 
             - name: Build Launcher Binary
               run: |
-                cargo install --path .
                 cargo build
 
             - name: Upload Launcher Artifacts
               uses: actions/upload-artifact@v3.1.0
               with:
                   name: Launcher
-                  path: target/release/bundle
+                  path: target/release
