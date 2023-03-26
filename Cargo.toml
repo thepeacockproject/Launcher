@@ -17,7 +17,7 @@ futures-util = "0.3.25"
 zip = { package = "binstall-zip", version = "0.6.3", default-features = false, features = [
 	"deflate",
 ] }
-tokio = { version = "1.21.2", features = [
+tokio = { version = "1.24.2", features = [
 	"process",
 	"rt-multi-thread",
 	"macros",
